@@ -1,6 +1,8 @@
 @extends('admin.admin_dashboard')
 @section('admin')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 <div class="page-content"> 
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -52,6 +54,11 @@
 							<div class="col-lg-8">
 								<div class="card">
 									<div class="card-body">
+
+
+									<form method="post" action="{{ route('admin.profile.store')}}" enctype="multipart/form-data">
+											@csrf
+									
 										<div class="row mb-3">
 											<div class="col-sm-3">
 												<h6 class="mb-0">User Name</h6>
@@ -65,7 +72,7 @@
 												<h6 class="mb-0">Full Name</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="{{$adminData->name}}" />
+												<input type="text" name="name" class="form-control" value="{{$adminData->name}}" />
 											</div>
 										</div>
 										<div class="row mb-3">
@@ -73,7 +80,7 @@
 												<h6 class="mb-0">Email</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="{{$adminData->email}}" />
+												<input type="email" name="email" class="form-control" value="{{$adminData->email}}" />
 											</div>
 										</div>
 										<div class="row mb-3">
@@ -81,7 +88,7 @@
 												<h6 class="mb-0">Phone</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="{{$adminData->phone}}" />
+												<input type="text" name="phone" class="form-control" value="{{$adminData->phone}}" />
 											</div>
 										</div>
 										<div class="row mb-3">
@@ -89,7 +96,7 @@
 												<h6 class="mb-0">Address</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="{{$adminData->address}}" />
+												<input type="text" name="address" class="form-control" value="{{$adminData->address}}" />
 											</div>
 										</div>
 
@@ -98,18 +105,31 @@
 												<h6 class="mb-0">Photo</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="file" class="form-control"  />
+												<input type="file" name="photo" class="form-control" id="image" />
 											</div>
 										</div>
 
+
+                                        <div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0"></h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+                                                <img id="showImage" src="{{ (!empty($adminData->photo) ? url('upload/admin_images/'.$adminData->photo):url('upload/no_image.jpg'))}}" alt="Admin" style="width:100px; height:100px;">
+											
+											</div>
+										</div>
 
 										<div class="row">
 											<div class="col-sm-3"></div>
 											<div class="col-sm-9 text-secondary">
-												<input type="button" class="btn btn-primary px-4" value="Save Changes" />
+												<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
 											</div>
 										</div>
 									</div>
+
+									</form>
+
 								</div>
 							</div>
 						</div>
@@ -117,5 +137,17 @@
 				</div>
 			</div>
 
+
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#image').change(function(e){
+                        var reader = new FileReader();
+                        reader.onload = function(e){
+                            $('#showImage').attr('src',e.target.result);
+                        }
+                        reader.readAsDataURL(e.target.files['0']);
+                    });
+                });
+            </script>
 
 @endsection
