@@ -29,5 +29,13 @@ class VendorController extends Controller
         return redirect('/vendor/login');
     }
 
+    public function VendorProfile(){
+
+        $id = Auth::user()->id;
+        $vendorData = User::find($id);
+        return view('vendor.vendor_Profile_view', compact('vendorData'));
+
+    }
+
 
 }
