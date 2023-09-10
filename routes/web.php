@@ -45,7 +45,10 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
 Route::middleware(['auth', 'role:vendor'])->group(function(){
     Route::get('/vendor/dashboard', [VendorController::class, 'VendorDashboard'])->name('vendor.dashboard');
+    Route::get('/vendor/logout', [VendorController::class, 'VendorDestroy'])->name('vendor.logout');
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
+
+Route::get('/vendor/login', [VendorController::class, 'VendorLogin']);
 
