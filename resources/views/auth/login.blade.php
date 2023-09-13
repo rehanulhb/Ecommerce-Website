@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Online Shopping store</title>
+    <title>Login - Online Shopping store</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,7 +65,7 @@
                                                         <label class="form-check-label" for="exampleCheckbox1"><span>Remember me</span></label>
                                                     </div>
                                                 </div>
-                                                <a class="text-muted" href="#{{ route('password.request') }}">Forgot password?</a>
+                                                <a class="text-muted" href="{{ route('password.request') }}">Forgot password?</a>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-heading btn-block hover-up" name="login">Log in</button>
