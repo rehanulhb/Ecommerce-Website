@@ -1,5 +1,6 @@
 @extends('dashboard')
 @section('user')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -164,37 +165,38 @@
                                                 <h5>Account Details</h5>
                                             </div>
                                             <div class="card-body">
-                                                <p>Already have an account? <a href="page-login.html">Log in instead!</a></p>
+                                                
                                                 <form method="post" name="enq">
                                                     <div class="row">
                                                         <div class="form-group col-md-6">
-                                                            <label>First Name <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="name" type="text" />
+                                                            <label>User Name <span class="required">*</span></label>
+                                                            <input required="" class="form-control" name="username" type="text" value ="{{ $userData->username }}" />
                                                         </div>
                                                         <div class="form-group col-md-6">
-                                                            <label>Last Name <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="phone" />
+                                                            <label>Full Name <span class="required">*</span></label>
+                                                            <input required="" class="form-control" name="name" value ="{{ $userData->name }}"/>
                                                         </div>
                                                         <div class="form-group col-md-12">
-                                                            <label>Display Name <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="dname" type="text" />
+                                                            <label>Email <span class="required">*</span></label>
+                                                            <input required="" class="form-control" name="email" type="email" value ="{{ $userData->email }}"/>
                                                         </div>
                                                         <div class="form-group col-md-12">
-                                                            <label>Email Address <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="email" type="email" />
+                                                            <label>Phone <span class="required">*</span></label>
+                                                            <input required="" class="form-control" name="phone" type="text" value ="{{ $userData->phone }}" />
                                                         </div>
                                                         <div class="form-group col-md-12">
-                                                            <label>Current Password <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="password" type="password" />
+                                                            <label>Address <span class="required">*</span></label>
+                                                            <input required="" class="form-control" name="address" type="text"  value ="{{ $userData->address }}" />
                                                         </div>
                                                         <div class="form-group col-md-12">
-                                                            <label>New Password <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="npassword" type="password" />
+                                                            <label>User Photo <span class="required">*</span></label>
+                                                            <input  class="form-control" name="photo" type="file" id="image" />
                                                         </div>
                                                         <div class="form-group col-md-12">
-                                                            <label>Confirm Password <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="cpassword" type="password" />
+                                                            <label> <span class="required">*</span></label>
+                                                            <img id="showImage" src="{{ (!empty($userData->photo) ? url('upload/user_images/'.$userData->photo):url('upload/no_image.jpg'))}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                                         </div>
+                                                        
                                                         <div class="col-md-12">
                                                             <button type="submit" class="btn btn-fill-out submit font-weight-bold" name="submit" value="Submit">Save Change</button>
                                                         </div>
@@ -210,4 +212,21 @@
                 </div>
             </div>
         </div>
+
+
+        <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#image').change(function(e){
+                        var reader = new FileReader();
+                        reader.onload = function(e){
+                            $('#showImage').attr('src',e.target.result);
+                        }
+                        reader.readAsDataURL(e.target.files['0']);
+                    });
+                });
+            </script>
+
         @endsection
+
+
+        
