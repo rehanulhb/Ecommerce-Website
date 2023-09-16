@@ -48,7 +48,7 @@
 											<h6 class="mb-0">Old Password</h6>
 										</div>
 										<div class="col-sm-9 text-secondary">
-											<input type="password" name="old_password" class="form-control @error('old_password') is-invalid @enderror" id="old_password"   placeholder="Old Password" />
+											<input type="password" name="old_password" class="form-control @error('old_password') is-invalid @enderror" id="current_password"   placeholder="Old Password" />
 
 											@error('old_password')
 											<span class="text-danger">{{ $message }}</span>
