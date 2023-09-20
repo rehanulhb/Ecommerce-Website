@@ -73,6 +73,8 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/all/brand', 'AllBrand')->name('all.brand');
     Route::get('/add/brand', 'AddBrand')->name('add.brand');
     Route::post('/store/brand', 'StoreBrand')->name('store.brand');
+    Route::get('/edit/brand/{id}', 'EditBrand')->name('edit.brand');
+    
 });
 
 

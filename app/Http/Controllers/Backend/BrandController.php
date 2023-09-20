@@ -41,5 +41,10 @@ class BrandController extends Controller
 
     }// End Method 
 
+    public function EditBrand($id){
+            $brand = Brand::findOrFail($id);
+            return view('backend.brand.brand_edit', compact('brand'));
+    }
+
 
 }
