@@ -92,4 +92,9 @@ class VendorController extends Controller
     }
 
 
+    public function BecomeVendor(){
+        return view('auth.become_vendor');
+    }
+
+
 }
