@@ -30,15 +30,16 @@
 									<div class="card-body">
 
 
-									<form method="post" action="{{ route('vendor.profile.store')}}" enctype="multipart/form-data">
+									<form method="post" action="{{ route('active.vendor.approve')}}" >
 											@csrf
-									
+
+                                        <input type="hidden" name="id" value="{{ $inactiveVendorDetails->id}}">    
 										<div class="row mb-3">
 											<div class="col-sm-3">
 												<h6 class="mb-0">User Name</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="{{$inactiveVendorDetails->username}}" disabled />
+												<input type="text" class="form-control" name="username" value="{{$inactiveVendorDetails->username}}"  />
 											</div>
 										</div>
 										<div class="row mb-3">
