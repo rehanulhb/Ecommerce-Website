@@ -108,9 +108,9 @@
 									<label for="inputProductType" class="form-label">Product Brand</label>
 									<select name="brand_id" class="form-select" id="inputProductType">
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										@foreach($brands as $brand)
+										<option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+										@endforeach
 									  </select>
 								  </div>
 
@@ -118,9 +118,11 @@
 									<label for="inputVendor" class="form-label">Product Category</label>
 									<select name="category_id" class="form-select" id="inputVendor">
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+
+										@foreach($categories as $cat)
+										<option value="{{$cat->id}}">{{$cat->category_name}}</option>
+										@endforeach
+										
 									  </select>
 								  </div>
 								  <div class="col-12">
@@ -137,9 +139,9 @@
 									<label for="inputCollection" class="form-label">Select Vendor</label>
 									<select name="vendor_id" class="form-select" id="inputCollection">
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										<@foreach($activeVendor as $vendor)
+										<option value="{{$vendor->id}}">{{$vendor->name}}</option>
+										@endforeach
 									  </select>
 								  </div>
 
