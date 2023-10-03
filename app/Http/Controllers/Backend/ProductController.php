@@ -105,4 +105,15 @@ class ProductController extends Controller
 
     }
 
+    public function EditProduct($id){
+        $activeVendor = User::where('status','active')->where('role', 'vendor')->latest()->get();
+        $brands = Brand::latest()->get();
+        $categories = Category::latest()->get();
+        $subcategory = SubCategory::latest()->get();
+        $products = Product::findOrFail($id);
+
+        return view('backend.product.product_edit', compact('brands','categories','activeVendor','products','subcategory'));
+
+    }
+
 }
