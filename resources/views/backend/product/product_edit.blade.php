@@ -26,10 +26,12 @@
 					  <h5 class="card-title">Edit Product</h5>
 					  <hr/>
 
-					<form id="myForm" method="post" action="{{ route('store.product')}}" enctype="multipart/form-data">
+					<form id="myForm" method="post" action="{{ route('update.product')}}" >
 											@csrf
 
-                       <div class="form-body mt-4">
+						<input type="hidden" name="id" value ="{{ $products->id}}" >
+                       
+						<div class="form-body mt-4">
 					    <div class="row">
 						   <div class="col-lg-8">
                            <div class="border border-3 p-4 rounded">
