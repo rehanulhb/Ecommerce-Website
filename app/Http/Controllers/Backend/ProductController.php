@@ -78,8 +78,8 @@ class ProductController extends Controller
 
         $images = $request->file('multi_img');
         foreach($images as $img){
-            $make_name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(800,800)->save('upload/products/multi-image/'.$make_name);
+            $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+        Image::make($img)->resize(800,800)->save('upload/products/multi-image/'.$make_name);
         
         $uploadPath = 'upload/products/multi-image/'.$make_name;
 
