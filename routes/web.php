@@ -70,6 +70,7 @@ Route::middleware(['auth', 'role:vendor'])->group(function(){
         Route::controller(VendorProductController::class)->group(function(){
         Route::get('vendor/all/product', 'VendorAllProduct')->name('vendor.all.product');
         Route::get('vendor/add/product', 'VendorAddProduct')->name('vendor.add.product');
+        Route::post('vendor/store/product', 'VendorStoreProduct')->name('vendor.store.product');
         Route::get('/vendor/subcategory/ajax/{category_id}', 'VendorGetSubCategory');
 
     });
