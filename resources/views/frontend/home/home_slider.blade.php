@@ -1,5 +1,5 @@
     @php
-    $slider = App\Models\Slider::orderBy('slider_title','ASC')->get();
+    $sliders_data = App\Models\Slider::orderBy('slider_title','ASC')->get();
     @endphp
 
 
@@ -8,7 +8,7 @@
                 <div class="home-slide-cover mt-30">
                     <div class="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1">
                         
-                            @foreach($slider as $item)
+                            @foreach($sliders_data as $item)
                             <div class="single-hero-slider single-animation-wrap" style="background-image: url({{ asset($item->slider_image) }})">
                                 <div class="slider-content">
                                     <h1 class="display-2 mb-40">
