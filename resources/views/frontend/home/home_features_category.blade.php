@@ -23,7 +23,18 @@
                                 <a href="shop-grid-right.html"><img src="{{ asset($category->category_image) }}" alt="" /></a>
                             </figure>
                             <h6><a href="shop-grid-right.html">{{$category->category_name}}</a></h6>
-                            <span>26 items</span>
+                            @php 
+
+                            $products = App\Models\Product::where('category_id', $category->id)->get();
+
+
+
+                            @endphp
+                    
+
+            
+                            
+                            <span>{{count($products)}} items</span>
                         </div>
                         @endforeach
                         
