@@ -26,7 +26,7 @@
                             @php 
 
                             $products = App\Models\Product::where('category_id', $category->id)->get();
-
+                            
 
 
                             @endphp
