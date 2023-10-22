@@ -98,16 +98,38 @@
                                     <div class="short-desc mb-30">
                                         <p class="font-lg">{{$product->short_descp}}</p>
                                     </div>
+
+                                    @if($product->product_size == NULL)
+
+                                    @else
+
                                     <div class="attr-detail attr-size mb-30">
-                                        <strong class="mr-10">Size / Weight: </strong>
-                                        <ul class="list-filter size-filter font-small">
-                                            <li><a href="#">50g</a></li>
-                                            <li class="active"><a href="#">60g</a></li>
-                                            <li><a href="#">80g</a></li>
-                                            <li><a href="#">100g</a></li>
-                                            <li><a href="#">150g</a></li>
-                                        </ul>
+                                        <strong class="mr-10" style="width:50px;">Size : </strong>
+                                        <select class="form-control unicase-form-control" id="size">
+                                            <option selected="" disabled="">--Choose Size--</option>
+                                            @foreach($product_size as $size)
+                                            <option value="{{$size}}"> {{ucwords($size)}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
+                                    @endif
+
+                                    @if($product->product_color == NULL)
+
+                                    @else
+
+                                    <div class="attr-detail attr-size mb-30">
+                                        <strong class="mr-10" style="width:50px;">Color : </strong>
+                                        <select class="form-control unicase-form-control" id="size">
+                                            <option selected="" disabled="">--Choose Size--</option>
+                                            @foreach($product_color as $color)
+                                            <option value="{{$color}}"> {{ucwords($color)}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @endif
+                                    
+
                                     <div class="detail-extralink mb-50">
                                         <div class="detail-qty border radius">
                                             <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
