@@ -56,8 +56,14 @@
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="detail-info pr-30 pl-30">
-                                    <span class="stock-status out-stock"> Sale Off </span>
-                                    <h2 class="title-detail">Seeds of Change Organic Quinoa, Brown</h2>
+
+                                    @if($product->product_qty > 0)
+                                    <span class="stock-status in-stock"> In Stock </span>
+                                    @else
+                                    <span class="stock-status out-stock"> Stock Out </span>
+                                    @endif
+                                    
+                                    <h2 class="title-detail"> {{ $product->product_name}}</h2>
                                     <div class="product-detail-rating">
                                         <div class="product-rate-cover text-end">
                                             <div class="product-rate d-inline-block">
@@ -67,16 +73,30 @@
                                         </div>
                                     </div>
                                     <div class="clearfix product-price-cover">
+
+                                        @php 
+                                        $amount = $product->selling_price - $product->discount_price;
+                                        $discount = ($amount/$product->selling_price)*100;
+                                        @endphp
+
+                                        @if($product->discount_price==NULL)
                                         <div class="product-price primary-color float-left">
-                                            <span class="current-price text-brand">$38</span>
+                                            <span class="current-price text-brand">${{$product->selling_price}}</span>
+                                            
+                                        </div>
+                                        @else
+                                        <div class="product-price primary-color float-left">
+                                            <span class="current-price text-brand">${{$product->discount_price}}</span>
                                             <span>
-                                                <span class="save-price font-md color3 ml-15">26% Off</span>
-                                                <span class="old-price font-md ml-15">$52</span>
+                                                <span class="save-price font-md color3 ml-15">{{round($discount)}}% Off</span>
+                                                <span class="old-price font-md ml-15">${{$product->selling_price}}</span>
                                             </span>
                                         </div>
+                                        @endif
+                                        
                                     </div>
                                     <div class="short-desc mb-30">
-                                        <p class="font-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.</p>
+                                        <p class="font-lg">{{$product->short_descp}}</p>
                                     </div>
                                     <div class="attr-detail attr-size mb-30">
                                         <strong class="mr-10">Size / Weight: </strong>
