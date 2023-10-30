@@ -31,8 +31,10 @@ class IndexController extends Controller
         $hot_deals = Product:: where('hot_deals',1)->where('discount_price','!=', NULL)->orderBy('id','DESC')->limit(3)->get();
         $special_offer = Product:: where('special_offer',1)->orderBy('id','DESC')->limit(3)->get();
 
+        $new = Product::where('status',1)->orderby('id','DESC')->limit(3)->get();
+        $special_deals = Product::where('special_deals',1)->orderby('id','DESC')->limit(3)->get();
 
-        return view('frontend.index',compact('skip_category_0','skip_product_0','skip_category_2','skip_product_2','skip_category_6','skip_product_6','hot_deals','special_offer'));
+        return view('frontend.index',compact('skip_category_0','skip_product_0','skip_category_2','skip_product_2','skip_category_6','skip_product_6','hot_deals','special_offer','new','special_deals'));
     }
 
 
