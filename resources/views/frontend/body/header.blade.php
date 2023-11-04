@@ -290,7 +290,7 @@
                                     @foreach($categories as $category)
                                     
                                     <li>
-                                        <a href="#">{{ $category->category_name}} <i class="fi-rs-angle-down"></i></a>
+                                        <a href="{{url('product/category/'.$category->id.'/'.$category->category_slug)}}">{{ $category->category_name}} <i class="fi-rs-angle-down"></i></a>
                                         
                                         @php 
 
