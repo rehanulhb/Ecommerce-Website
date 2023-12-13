@@ -108,6 +108,8 @@
                                     </a>
                                     <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
                                 </div>
+                                
+                                
                                 <div class="header-action-icon-2">
                                     <a class="mini-cart-icon" href="shop-cart.html">
                                         <img alt="Nest" src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}" />
@@ -116,13 +118,9 @@
                                     <a href="shop-cart.html"><span class="lable">Cart</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                         
-                                        <!--   // mini cart start with ajax -->
-                                                <div id="miniCart">
+                                    <div id="miniCart">
 
-                                                </div>
-
-                                        <!--   // End mini cart start with ajax -->
-
+                                    </div>
                                             
 
 

@@ -80,7 +80,7 @@
     <script src="{{ asset('frontend/assets/js/main.js?v=5.3') }}"></script>
     <script src="{{ asset('frontend/assets/js/shop.js?v=5.3') }}"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
 
     $.ajaxSetup({
@@ -188,7 +188,38 @@
                 url:"/cart/data/store/"+id,
                 success:function(data){
                     $('#closeModal').click();
-                    console.log(data)
+                    
+                    const Toast = Swal.mixin({
+                        toast:true,
+                        position: "top-end",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer:3000
+
+                    })
+
+                    if($.isEmptyObject(data.error)){
+
+                        Toast.fire({
+                        type: "top-end",
+                        title: data.success,
+                        
+                    })
+
+                     }
+
+                     else{
+                        Toast.fire({
+                        type: "top-end",
+                        title: data.error,
+                        
+                        })
+                     }
+                    
+
+                    
+
+
                 }
             })
 
@@ -207,34 +238,36 @@
                 url:'/product/mini/cart',
                 dataType:'json',
                 success::function(response){
-                    //console.log(response)
+                    
+                    var miniCart = '';
+                    $.each(response.carts, function(key,value){
+                        
+                    miniCart += ` <ul>
+                                        <li>
+                                            <div class="shopping-cart-img">
+                                                <a href="shop-product-right.html"><img alt="Nest" src="/${value.options.image} " style="width:50px;height:50px;" /></a>
+                                            </div>
+                                            <div class="shopping-cart-title" style="margin: -73px 74px 14px; width" 146px;>
+                                                <h4><a href="shop-product-right.html"> ${value.name} </a></h4>
+                                                <h4><span>${value.qty} × </span>${value.price}</h4>
+                                            </div>
+                                            <div class="shopping-cart-delete" style="margin: -85px 1px 0px;">
+                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                            </div>
+                                        </li> 
+                                    </ul>
+                                <hr><br>  
+                                    `  
+                    });
+            
+                    $('#miniCart').html(miniCart);
+                    }
+                })
 
-
-                    var miniCart = ""
-        $.each(response.carts, function(key,value){
-           miniCart += ` <ul>
-            <li>
-                <div class="shopping-cart-img">
-                    <a href="shop-product-right.html"><img alt="Nest" src="/${value.options.image} " style="width:50px;height:50px;" /></a>
-                </div>
-                <div class="shopping-cart-title" style="margin: -73px 74px 14px; width" 146px;>
-                    <h4><a href="shop-product-right.html"> ${value.name} </a></h4>
-                    <h4><span>${value.qty} × </span>${value.price}</h4>
-                </div>
-                <div class="shopping-cart-delete" style="margin: -85px 1px 0px;">
-                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                </div>
-            </li> 
-        </ul>
-        <hr><br>  
-               `  
-          });
-            $('#miniCart').html(miniCart);
-        }
-    })
- }
-  miniCart();
-
+                
+            }
+        
+            miniCart();
         </script>
 
 
