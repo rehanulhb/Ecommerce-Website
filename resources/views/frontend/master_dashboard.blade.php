@@ -187,6 +187,7 @@
                 },
                 url:"/cart/data/store/"+id,
                 success:function(data){
+                    miniCart();
                     $('#closeModal').click();
                     
                     const Toast = Swal.mixin({
@@ -237,10 +238,12 @@
                 type:'GET',
                 url:'/product/mini/cart',
                 dataType:'json',
-                success:function(data){
+                success:function(response){
                     
+                    $('span[id="cartSubTotal"]').text(response.cartTotal);
+                    $('#cartQty').text(response.cartQty);
                     var miniCart = '';
-                    $.each(data.carts, function(key,value){
+                    $.each(response.carts, function(key,value){
                         
                     miniCart += ` <ul>
                                         <li>
