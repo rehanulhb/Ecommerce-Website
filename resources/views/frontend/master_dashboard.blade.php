@@ -237,10 +237,10 @@
                 type:'GET',
                 url:'/product/mini/cart',
                 dataType:'json',
-                success::function(response){
+                success:function(data){
                     
                     var miniCart = '';
-                    $.each(response.carts, function(key,value){
+                    $.each(data.carts, function(key,value){
                         
                     miniCart += ` <ul>
                                         <li>
