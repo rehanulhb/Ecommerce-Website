@@ -229,6 +229,69 @@
        }
 
 
+
+        /// Product Details Page add to cart
+
+
+            function addToCartDetails(){
+
+                var product_name = $('#dpname').text();
+                var id = $('#dproduct_id').val();
+                var color = $('#dcolor option:selected').text();
+                var size = $('#dsize option:selected').text();
+                var quantity = $('#dqty').val();
+
+                $.ajax({
+                    type:"POST",
+                    dataType:'json',
+                    data:{
+                        color:color, size:size, quantity:quantity, product_name:product_name
+
+                    },
+                    url:"/dcart/data/store/"+id,
+                    success:function(data){
+                        miniCart();
+                        
+                        
+                        const Toast = Swal.mixin({
+                            toast:true,
+                            position: "top-end",
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer:3000
+
+                        })
+
+                        if($.isEmptyObject(data.error)){
+
+                            Toast.fire({
+                            type: "top-end",
+                            title: data.success,
+                            
+                        })
+
+                        }
+
+                        else{
+                            Toast.fire({
+                            type: "top-end",
+                            title: data.error,
+                            
+                            })
+                        }
+                        
+
+                        
+
+
+                    }
+                })
+
+
+
+        }
+
+
     </script>
 
     <script type="text/javascript">
