@@ -393,6 +393,8 @@
                     dataType:'json',
                     url:"/add-to-wishlist/"+product_id,
                     success:function(data){
+
+                        wishlist();
                         
                         const Toast = Swal.mixin({
                         toast:true,
@@ -447,6 +449,7 @@
                     success:function(response){
                         console.log(response)
 
+                            $('#wishQty').text(response.wishQty);
                             var rows = ""
 
                             $.each(response.wishlist, function(key,value){
@@ -467,8 +470,8 @@
                                     </td>
                                     <td class="price" data-title="Price">
                                         ${value.product.discount_price == null 
-                                            ? `<h3 class="text-brand">${value.product.selling_price}</h3>`
-                                            : `<h3 class="text-brand">${value.product.discount_price}</h3>`
+                                            ? `<h3 class="text-brand">$${value.product.selling_price}</h3>`
+                                            : `<h3 class="text-brand">$${value.product.discount_price}</h3>`
                                         
                                         }
                                         
@@ -487,7 +490,7 @@
                                     </td>
                                     
                                     <td class="action text-center" data-title="Remove">
-                                        <a href="#" class="text-body"><i class="fi-rs-trash"></i></a>
+                                        <a type="submit" class="text-body" id="${value.id}" onclick="wishlistRemove(this.id)"><i class="fi-rs-trash"></i></a>
                                     </td>
                                 </tr>
 
@@ -504,6 +507,54 @@
             }
 
             wishlist();
+
+
+            // Wishlist Remove Start
+
+            function wishlistRemove(id){
+                $.ajax({
+                    type:"GET",
+                    dataType:'json',
+                    url:"/wishlist-remove/"+id,
+                    success:function(data){
+
+                        wishlist();
+                        
+                        const Toast = Swal.mixin({
+                        toast:true,
+                        position: "top-end",
+                        
+                        showConfirmButton: false,
+                        timer:3000
+
+                        })
+
+                        if($.isEmptyObject(data.error)){
+
+                        Toast.fire({
+                        type: "success",
+                        icon: "success",
+                        title: data.success,
+                        
+                            })
+
+                        }
+
+                        else{
+                        Toast.fire({
+                        type: "error",
+                        icon: "error",
+                        title: data.error,
+                        
+                         })
+                        }
+
+
+                    }
+                })
+            }
+
+            //Wishlist Remove end
         
         </script>
 
