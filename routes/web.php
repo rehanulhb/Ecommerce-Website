@@ -18,6 +18,8 @@ use App\Http\Controllers\Frontend\CartController;
 
 use App\Http\Controllers\User\WishlistController;
 
+use App\Http\Controllers\User\CompareController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -219,6 +221,8 @@ Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails'
 
 //Add to Wishlist
 Route::post('/add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishList']);
+
+Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCompare']);
 
 
  //// User all route
