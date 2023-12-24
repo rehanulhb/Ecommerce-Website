@@ -235,4 +235,14 @@ Route::middleware(['auth', 'role:user'])->group(function(){
         
     
     });
+
+    Route::controller(CompareController::class)->group(function(){
+        Route::get('/compare', 'AllCompare')->name('compare');
+        
+        
+        
+    
+    });
+
+
 });

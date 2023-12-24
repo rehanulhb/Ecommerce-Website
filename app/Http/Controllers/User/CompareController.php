@@ -38,6 +38,12 @@ class CompareController extends Controller
     }
 
 
+    public function AllCompare(){
+        return view('frontend.compare.view_compare');
+
+    }
+
+    //End compare
 
 
 
