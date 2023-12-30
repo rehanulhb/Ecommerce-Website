@@ -245,5 +245,14 @@ Route::middleware(['auth', 'role:user'])->group(function(){
     
     });
 
+    // Cart All Route
+    Route::controller(CartController::class)->group(function(){
+        Route::get('/mycart', 'MyCart')->name('mycart');
+        
+        
+        
+    
+    });
 
-});
+
+});  // User Middle ware Ended
