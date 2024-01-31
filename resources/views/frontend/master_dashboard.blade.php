@@ -800,7 +800,7 @@
                                                 
                                                 <input type="text" name="quantity" class="qty-val" value="${value.qty}" min="1">
                                                 
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                                <a href="#" class="qty-up" id="${value.rowId}" onclick="cartIncrement(this.id)><i class="fi-rs-angle-small-up"></i></a>
                                             
                                                 </div>
                                         </div>
@@ -888,6 +888,25 @@
 
 
                     // Cart Decrement End
+
+
+                    // Cart Increment Start
+
+                    function cartIncrement(rowId){
+                        $.ajax({
+                            type: 'GET',
+                            url: "/cart-increment/"+rowId,
+                            dataType: 'json',
+                            success:function(data){
+                                cart();
+                                miniCart();
+
+                            }
+                        });
+
+                    }
+
+                    //Cart Decrement Start
 
 
                 </script>
