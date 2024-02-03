@@ -82,18 +82,24 @@
 
 
             
-
+            
 <script type="text/javascript">
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                subcategory_name: {
+                coupon_name: {
+                    required : true,
+                }, 
+                coupon_discount: {
                     required : true,
                 }, 
             },
             messages :{
-                subcategory_name: {
-                    required : 'Please Enter SubCategory Name',
+                coupon_name: {
+                    required : 'Please Enter Coupon Name',
+                },
+                coupon_discount: {
+                    required : 'Please Enter Coupon Discount',
                 },
             },
             errorElement : 'span', 
