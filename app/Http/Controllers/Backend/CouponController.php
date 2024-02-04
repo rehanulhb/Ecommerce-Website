@@ -19,5 +19,23 @@ class CouponController extends Controller
         return view('backend.coupon.coupon_add');
     }
 
+    public function StoreCoupon(Request $request){
+
+        Coupon::insert([
+            'coupon_name' => $request->coupon_name,
+            'subcategory_name' => $request->subcategory_name,
+            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_name)),
+            
+        ]);
+
+       $notification = array(
+            'message' => 'SubCategory Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.subcategory')->with($notification); 
+
+    }
+
 
 }

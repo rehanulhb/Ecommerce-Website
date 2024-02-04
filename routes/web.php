@@ -194,7 +194,7 @@ Route::controller(BannerController::class)->group(function(){
 Route::controller(CouponController::class)->group(function(){
     Route::get('/all/coupon', 'AllCoupon')->name('all.coupon');
     Route::get('/add/coupon', 'AddCoupon')->name('add.coupon');
-    Route::post('/store/banner', 'StoreBanner')->name('store.banner');
+    Route::post('/store/coupon', 'StoreCoupon')->name('store.coupon');
     Route::get('/edit/banner/{id}', 'EditBanner')->name('edit.banner');
     Route::post('/update/banner', 'UpdateBanner')->name('update.banner');
     Route::get('/delete/banner/{id}', 'DeleteBanner')->name('delete.banner');
