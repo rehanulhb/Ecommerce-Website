@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Coupon;
+use Carbon\Carbon;
 
 class CouponController extends Controller
 {
@@ -23,17 +24,18 @@ class CouponController extends Controller
 
         Coupon::insert([
             'coupon_name' => $request->coupon_name,
-            'subcategory_name' => $request->subcategory_name,
-            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_name)),
+            'coupon_discount' => $request->coupon_discount,
+            'coupon_validity' => $request->coupon_validity,
+            'created_at' => Carbon::now(),
             
         ]);
 
        $notification = array(
-            'message' => 'SubCategory Inserted Successfully',
+            'message' => 'Coupon Inserted Successfully',
             'alert-type' => 'success'
         );
 
-        return redirect()->route('all.subcategory')->with($notification); 
+        return redirect()->route('all.coupon')->with($notification); 
 
     }
 
