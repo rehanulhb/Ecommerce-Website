@@ -49,11 +49,11 @@
 										<td>{{ $item->coupon_discount }} %</td>
                                         <td>{{ Carbon\Carbon::parse($item->coupon_validity)->format('D, d F Y') }}</td>
                                         <td>
-                                            @if($item->coupon_validity >= Carbon\Carbon::now()->format('Y-m-d'))
-                                            <span class="badge rounded-pill bg-success">Valid</span>
-                                            @else
-                                            <span class="badge rounded-pill bg-danger">Invalid</span>
-                                            @endif
+										@if($item->coupon_validity >= Carbon\Carbon::now()->format('Y-m-d'))
+										<span class="badge rounded-pill bg-success">Valid</span>
+										@else
+										<span class="badge rounded-pill bg-danger">Invalid</span>
+										@endif
                                         </td>
 										<td>
                                             <a href="{{route('edit.subcategory', $item->id)}}" class="btn btn-info">Edit</a>

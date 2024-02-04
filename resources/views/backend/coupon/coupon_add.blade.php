@@ -59,7 +59,7 @@
 												<h6 class="mb-0">Coupon Validity Date</h6>
 											</div>
 											<div class="form-group col-sm-9 text-secondary">
-												<input type="date" name="coupon_validity" class="form-control" min="{{Carbon\Carbon::now()->format('Y-m-d')}}" />
+												<input type="date" name="coupon_validity" class="form-control" min="{{ Carbon\Carbon::now()->format('Y-m-d')}}" />
 											</div>
 										</div>
 
