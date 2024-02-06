@@ -197,7 +197,7 @@ Route::controller(CouponController::class)->group(function(){
     Route::post('/store/coupon', 'StoreCoupon')->name('store.coupon');
     Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
     Route::post('/update/coupon', 'UpdateCoupon')->name('update.coupon');
-    Route::get('/delete/banner/{id}', 'DeleteBanner')->name('delete.banner');
+    Route::get('/delete/coupon/{id}', 'DeleteCoupon')->name('delete.coupon');
 
 });
 
