@@ -30,11 +30,11 @@
 									<div class="card-body">
 
 
-									<form id="myForm" method="post" action="{{ route('store.coupon')}}" >
+									<form id="myForm" method="post" action="{{ route('update.coupon')}}" >
 											@csrf
 									
 										
-										
+										<input type="hidden" name="id" value="{{ $coupon->id }}" >
 										
                                         <div class="row mb-3">
 											<div class="col-sm-3">
