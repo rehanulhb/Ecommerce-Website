@@ -39,5 +39,10 @@ class CouponController extends Controller
 
     }
 
+    public function EditCoupon($id){
+            $coupon = Coupon::findOrFail($id);
+            return view('backend.coupon.edit_coupon', compact('coupon'));
+    }
+
 
 }

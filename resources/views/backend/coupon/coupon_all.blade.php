@@ -46,7 +46,7 @@
 									<tr>
 										<td>{{$key+1}}</td>
 										<td>{{ $item->coupon_name }}</td>
-										<td>{{ $item->coupon_discount }} %</td>
+										<td>{{ $item->coupon_discount }}%</td>
                                         <td>{{ Carbon\Carbon::parse($item->coupon_validity)->format('D, d F Y') }}</td>
                                         <td>
 										@if($item->coupon_validity >= Carbon\Carbon::now()->format('Y-m-d'))
@@ -56,8 +56,8 @@
 										@endif
                                         </td>
 										<td>
-                                            <a href="{{route('edit.subcategory', $item->id)}}" class="btn btn-info">Edit</a>
-                                            <a href="{{route('delete.subcategory', $item->id)}}" class="btn btn-danger" id="delete">Delete</a>
+                                            <a href="{{route('edit.coupon', $item->id)}}" class="btn btn-info">Edit</a>
+                                            <a href="{{route('edit.coupon', $item->id)}}" class="btn btn-danger" id="delete">Delete</a>
                                         </td>
 										
 									</tr>
