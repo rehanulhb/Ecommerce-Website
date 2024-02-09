@@ -16,4 +16,9 @@ class ShippingAreaController extends Controller
         $division = ShipDivision::latest()->get();
         return view('backend.ship.division.division_all', compact('division'));
     }
+
+    public function AddDivision(){
+        return view('backend.ship.division.division_add');
+    }
+
 }
