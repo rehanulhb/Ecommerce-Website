@@ -33,11 +33,8 @@
 								<thead>
 									<tr>
 										<th>Sl</th>
-										<th>Coupon Name</th>
-										<th>Coupon Discount</th>
-                                        <th>Coupon Validity</th>
-                                        <th>Coupon Status</th>
-										<th>Action</th>
+										<th>Division Name</th>
+                                        <th>Action</th>
 										
 									</tr>
 								</thead>
@@ -45,16 +42,8 @@
                                     @foreach($division as $key => $item)
 									<tr>
 										<td>{{$key+1}}</td>
-										<td>{{ $item->coupon_name }}</td>
-										<td>{{ $item->coupon_discount }}%</td>
-                                        <td>{{ Carbon\Carbon::parse($item->coupon_validity)->format('D, d F Y') }}</td>
-                                        <td>
-										@if($item->coupon_validity >= Carbon\Carbon::now()->format('Y-m-d'))
-										<span class="badge rounded-pill bg-success">Valid</span>
-										@else
-										<span class="badge rounded-pill bg-danger">Invalid</span>
-										@endif
-                                        </td>
+										<td>{{ $item->division_name }}</td>
+										
 										<td>
                                             <a href="{{route('edit.coupon', $item->id)}}" class="btn btn-info">Edit</a>
                                             <a href="{{route('delete.coupon', $item->id)}}" class="btn btn-danger" id="delete">Delete</a>
@@ -68,12 +57,9 @@
 								</tbody>
 								<tfoot>
 									<tr>
-                                        <th>Sl</th>
-										<th>Coupon Name</th>
-										<th>Coupon Discount</th>
-                                        <th>Coupon Validity</th>
-                                        <th>Coupon Status</th>
-										<th>Action</th>
+									<th>Sl</th>
+										<th>Division Name</th>
+                                        <th>Action</th>
 									</tr>
 								</tfoot>
 							</table>
