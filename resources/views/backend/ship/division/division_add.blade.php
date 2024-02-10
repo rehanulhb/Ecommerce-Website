@@ -30,7 +30,7 @@
 									<div class="card-body">
 
 
-									<form id="myForm" method="post" action="{{ route('store.coupon')}}" >
+									<form id="myForm" method="post" action="{{ route('store.division')}}" >
 											@csrf
 									
 										
@@ -41,7 +41,7 @@
 												<h6 class="mb-0">Division Name</h6>
 											</div>
 											<div class="form-group col-sm-9 text-secondary">
-												<input type="text" name="coupon_name" class="form-control"  />
+												<input type="text" name="division_name" class="form-control"  />
 											</div>
 										</div>
 
@@ -71,20 +71,16 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                coupon_name: {
+                division_name: {
                     required : true,
                 }, 
-                coupon_discount: {
-                    required : true,
-                }, 
+                 
             },
             messages :{
-                coupon_name: {
-                    required : 'Please Enter Coupon Name',
+                division_name: {
+                    required : 'Please Enter Division Name',
                 },
-                coupon_discount: {
-                    required : 'Please Enter Coupon Discount',
-                },
+                
             },
             errorElement : 'span', 
             errorPlacement: function (error,element) {

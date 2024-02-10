@@ -206,7 +206,7 @@ Route::controller(CouponController::class)->group(function(){
 Route::controller(ShippingAreaController::class)->group(function(){
     Route::get('/all/division', 'AllDivision')->name('all.division');
     Route::get('/add/division', 'AddDivision')->name('add.division');
-    Route::post('/store/coupon', 'StoreCoupon')->name('store.coupon');
+    Route::post('/store/division', 'StoreDivision')->name('store.division');
     Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
     Route::post('/update/coupon', 'UpdateCoupon')->name('update.coupon');
     Route::get('/delete/coupon/{id}', 'DeleteCoupon')->name('delete.coupon');
