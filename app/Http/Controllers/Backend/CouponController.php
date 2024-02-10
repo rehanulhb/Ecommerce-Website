@@ -56,7 +56,7 @@ class CouponController extends Controller
             ]);
     
            $notification = array(
-                'message' => 'Coupon Inserted Successfully',
+                'message' => 'Coupon Updated Successfully',
                 'alert-type' => 'success'
             );
     
