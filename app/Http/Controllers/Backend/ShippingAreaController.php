@@ -59,6 +59,19 @@ class ShippingAreaController extends Controller
 
         return redirect()->route('all.division')->with($notification);
 
-}
+    }
+    
+    public function DeleteDivision($id){
+        
+        ShipDivision::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Division Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }
 
 }

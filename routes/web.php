@@ -209,7 +209,7 @@ Route::controller(ShippingAreaController::class)->group(function(){
     Route::post('/store/division', 'StoreDivision')->name('store.division');
     Route::get('/edit/division/{id}', 'EditDivision')->name('edit.division');
     Route::post('/update/division', 'UpdateDivision')->name('update.division');
-    Route::get('/delete/coupon/{id}', 'DeleteCoupon')->name('delete.coupon');
+    Route::get('/delete/division/{id}', 'DeleteDivision')->name('delete.division');
 
 });
 

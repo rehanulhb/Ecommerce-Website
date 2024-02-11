@@ -46,7 +46,7 @@
 										
 										<td>
                                             <a href="{{route('edit.division', $item->id)}}" class="btn btn-info">Edit</a>
-                                            <a href="{{route('delete.coupon', $item->id)}}" class="btn btn-danger" id="delete">Delete</a>
+                                            <a href="{{route('delete.division', $item->id)}}" class="btn btn-danger" id="delete">Delete</a>
                                         </td>
 										
 									</tr>
