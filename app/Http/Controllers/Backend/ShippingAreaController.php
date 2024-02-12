@@ -103,5 +103,9 @@ class ShippingAreaController extends Controller
         return redirect()->route('all.district')->with($notification); 
 
     }
+    public function EditDistrict($id){
+        $division = ShipDivision::findOrFail($id);
+        return view('backend.ship.division.division_edit', compact('division'));
+    }
 
 }
