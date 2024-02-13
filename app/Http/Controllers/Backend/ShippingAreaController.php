@@ -109,4 +109,22 @@ class ShippingAreaController extends Controller
         return view('backend.ship.district.district_edit', compact('district','division'));
     }
 
+    public function UpdateDistrict(Request $request){
+        $district_id = $request->id;
+
+        ShipDistricts::findOrFail($district_id)->update([
+            'division_id' => $request->division_id,
+            'district_name' => $request->district_name,
+            
+        ]);
+
+       $notification = array(
+            'message' => 'Ship Districts Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.district')->with($notification);
+
+    }
+
 }

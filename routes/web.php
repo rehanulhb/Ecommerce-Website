@@ -218,7 +218,7 @@ Route::controller(ShippingAreaController::class)->group(function(){
     Route::get('/add/district', 'AddDistrict')->name('add.district');
     Route::post('/store/district', 'StoreDistrict')->name('store.district');
     Route::get('/edit/district/{id}', 'EditDistrict')->name('edit.district');
-    Route::post('/update/division', 'UpdateDivision')->name('update.division');
+    Route::post('/update/district', 'UpdateDistrict')->name('update.district');
     Route::get('/delete/division/{id}', 'DeleteDivision')->name('delete.division');
 
 });
