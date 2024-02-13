@@ -104,8 +104,9 @@ class ShippingAreaController extends Controller
 
     }
     public function EditDistrict($id){
-        $division = ShipDivision::findOrFail($id);
-        return view('backend.ship.division.division_edit', compact('division'));
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistricts::findOrFail($id);
+        return view('backend.ship.district.district_edit', compact('district','division'));
     }
 
 }
