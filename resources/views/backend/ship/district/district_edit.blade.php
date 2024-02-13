@@ -32,8 +32,8 @@
 
 									<form id="myForm" method="post" action="{{ route('store.district')}}" >
 											@csrf
-									
-										
+    
+                                        <input type="hidden" name="id" value="{{ $district->id}}">
 										<div class="row mb-3">
 											<div class="col-sm-3">
 												<h6 class="mb-0">Division Name</h6>
@@ -43,7 +43,7 @@
                                                 <option selected="">Open this select menu</option>
                                                 
                                                 @foreach($division as $item)
-                                                <option value="{{$item->id}}">{{$item->division_name}}</option>
+                                                <option value="{{$item->id}}" {{ $item->id == $district->division_id ? 'selected' : '' }} >{{$item->division_name}}</option>
                                                 @endforeach
                                             </select>
 											</div>
