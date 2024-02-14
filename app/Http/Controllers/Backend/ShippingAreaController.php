@@ -140,5 +140,10 @@ class ShippingAreaController extends Controller
 
     }
 
+    public function AllState(){
+        $state = ShipState::latest()->get();
+        return view('backend.ship.state.state_all', compact('state'));
+    }
+
 
 }

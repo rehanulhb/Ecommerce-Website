@@ -223,6 +223,16 @@ Route::controller(ShippingAreaController::class)->group(function(){
 
 });
 
+Route::controller(ShippingAreaController::class)->group(function(){
+    Route::get('/all/state', 'AllState')->name('all.state');
+    Route::get('/add/district', 'AddDistrict')->name('add.district');
+    Route::post('/store/district', 'StoreDistrict')->name('store.district');
+    Route::get('/edit/district/{id}', 'EditDistrict')->name('edit.district');
+    Route::post('/update/district', 'UpdateDistrict')->name('update.district');
+    Route::get('/delete/district/{id}', 'DeleteDistrict')->name('delete.district');
+
+});
+
 
 }); // End Middleware
 
