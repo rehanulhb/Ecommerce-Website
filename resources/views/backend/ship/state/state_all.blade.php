@@ -16,7 +16,7 @@
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
-							<a href="{{route('add.district')}}" class="btn btn-primary" >Add State</a>
+							<a href="{{route('add.state')}}" class="btn btn-primary" >Add State</a>
 							
 							
 							
@@ -45,7 +45,8 @@
 									<tr>
 										<td>{{$key+1}}</td>
 										<td>{{ $item['division']['division_name'] }}</td>
-										<td>{{ $item->district_name }}</td>
+                                        <td>{{ $item['district']['district_name'] }}</td>
+										<td>{{ $item->state_name }}</td>
 										<td>
                                             <a href="{{route('edit.district', $item->id)}}" class="btn btn-info">Edit</a>
                                             <a href="{{route('delete.district', $item->id)}}" class="btn btn-danger" id="delete">Delete</a>
