@@ -231,6 +231,9 @@ Route::controller(ShippingAreaController::class)->group(function(){
     Route::post('/update/district', 'UpdateDistrict')->name('update.district');
     Route::get('/delete/district/{id}', 'DeleteDistrict')->name('delete.district');
 
+    
+    Route::get('/district/ajax/{division_id}', 'GetDistrict');
+
 });
 
 
