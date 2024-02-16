@@ -30,7 +30,7 @@
 									<div class="card-body">
 
 
-									<form id="myForm" method="post" action="{{ route('store.district')}}" >
+									<form id="myForm" method="post" action="{{ route('store.state')}}" >
 											@csrf
 									
 										
