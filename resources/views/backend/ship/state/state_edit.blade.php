@@ -43,7 +43,7 @@
                                                 <option selected="">Open this select menu</option>
                                                 
                                                 @foreach($division as $item)
-                                                <option value="{{$item->id}}">{{$item->division_name}}</option>
+                                                <option value="{{$item->id}}" {{ $item->id == $state->division_id ? 'selected' : '' }} >{{$item->division_name}}</option>
                                                 @endforeach
                                             </select>
 											</div>
@@ -54,11 +54,11 @@
 												<h6 class="mb-0">District Name</h6>
 											</div>
 											<div class="form-group col-sm-9 text-secondary">
-                                            <select name="division_id" class="form-select mb-3" aria-label="Default select example">
+                                            <select name="district_id" class="form-select mb-3" aria-label="Default select example">
                                                 <option selected="">Open this select menu</option>
                                                 
-                                                @foreach($division as $item)
-                                                <option value="{{$item->id}}">{{$item->division_name}}</option>
+                                                @foreach($district as $item)
+                                                <option value="{{$item->id}}" {{ $item->id == $state->district_id ? 'selected' : '' }}>{{$item->district_name}}</option>
                                                 @endforeach
                                             </select>
 											</div>
@@ -71,7 +71,7 @@
 												<h6 class="mb-0">State Name</h6>
 											</div>
 											<div class="form-group col-sm-9 text-secondary">
-												<input type="text" name="state_name" class="form-control"  />
+												<input type="text" name="state_name" class="form-control" value="{{ $state->state_name }}" />
 											</div>
 										</div>
 
