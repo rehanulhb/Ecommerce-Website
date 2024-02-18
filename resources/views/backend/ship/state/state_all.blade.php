@@ -49,7 +49,7 @@
 										<td>{{ $item->state_name }}</td>
 										<td>
                                             <a href="{{route('edit.state', $item->id)}}" class="btn btn-info">Edit</a>
-                                            <a href="{{route('delete.district', $item->id)}}" class="btn btn-danger" id="delete">Delete</a>
+                                            <a href="{{route('delete.state', $item->id)}}" class="btn btn-danger" id="delete">Delete</a>
                                         </td>
 										
 									</tr>
