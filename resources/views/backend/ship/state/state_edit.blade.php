@@ -30,10 +30,10 @@
 									<div class="card-body">
 
 
-									<form id="myForm" method="post" action="{{ route('store.state')}}" >
+									<form id="myForm" method="post" action="{{ route('update.state')}}" >
 											@csrf
 									
-										
+										<input type="hidden" name="id" value="{{ $state->id}}" >
 										<div class="row mb-3">
 											<div class="col-sm-3">
 												<h6 class="mb-0">Division Name</h6>
