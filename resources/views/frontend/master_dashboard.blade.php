@@ -913,6 +913,57 @@
 
             // End Load My Cart
 
+            <!-- -->
+            <script type="text/javascript">
+                function applyCoupon(id){
+
+                        var coupon_name=$('#coupon_name').val();
+                            $.ajax({
+                                type:"GET",
+                                dataType:'json',
+                                data: {coupon_name: coupon_name},
+
+                                url:"/coupon-apply",
+
+                                success:function(data){
+                                    
+
+                                    
+                                    
+                                    const Toast = Swal.mixin({
+                                    toast:true,
+                                    position: "top-end",
+                                    
+                                    showConfirmButton: false,
+                                    timer:3000
+
+                                    })
+
+                                    if($.isEmptyObject(data.error)){
+
+                                    Toast.fire({
+                                    type: "success",
+                                    icon: "success",
+                                    title: data.success,
+                                    
+                                        })
+
+                                    }
+
+                                    else{
+                                    Toast.fire({
+                                    type: "error",
+                                    icon: "error",
+                                    title: data.error,
+                                    
+                                    })
+                                    }
+
+
+                                }
+                            })
+                        }
+            </script>
             
 
 
