@@ -919,7 +919,7 @@
 
                         var coupon_name=$('#coupon_name').val();
                             $.ajax({
-                                type:"GET",
+                                type:"POST",
                                 dataType:'json',
                                 data: {coupon_name: coupon_name},
 
