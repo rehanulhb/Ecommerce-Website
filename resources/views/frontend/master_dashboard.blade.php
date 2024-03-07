@@ -927,7 +927,9 @@
 
                                 success:function(data){
                                     
-
+                                    if(data.validity == true){
+                                        $('$=#couponField').hide();
+                                    }
                                     
                                     
                                     const Toast = Swal.mixin({
